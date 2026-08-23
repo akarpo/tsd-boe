@@ -28,7 +28,7 @@ Usage
 -----
     python3 scripts/keyterms_index.py --meeting 2026-08-18          # report
     python3 scripts/keyterms_index.py --meeting 2026-08-18 --add    # index them
-    python3 scripts/keyterms_index.py --emit transcription/keyterms/TSD_keyterms_2025-2026.json
+    python3 scripts/keyterms_index.py --emit <path> --base <curated.json>
     python3 scripts/keyterms_index.py --history "L Mason Capitani"  # when/why a term is here
 """
 from __future__ import annotations
@@ -181,6 +181,8 @@ def main() -> int:
     ap.add_argument("--meeting", help="YYYY-MM-DD — scan this meeting's packet")
     ap.add_argument("--add", action="store_true", help="write new terms into the index")
     ap.add_argument("--emit", help="write the flat keyterms JSON the transcriber reads")
+    ap.add_argument("--base", help="curated keyterms JSON to merge with (people, schools, "
+                                   "programs — the hand-validated terms this index does not produce)")
     ap.add_argument("--history", help="show provenance for one term")
     ap.add_argument("--limit", type=int, default=1000, help="AssemblyAI phrase cap")
     a = ap.parse_args()
@@ -192,7 +194,16 @@ def main() -> int:
         return 0
 
     if a.emit:
-        terms = sorted(ix)
+        # Merge with the curated list rather than replacing it. The curated file
+        # carries hand-validated people, schools, programs and acronyms that a
+        # packet scan does not produce; emitting the index alone would quietly
+        # drop them the first time this ran unattended.
+        base = []
+        if a.base and Path(a.base).exists():
+            base = json.loads(Path(a.base).read_text())
+        terms = sorted(set(ix) | set(base))
+        if base:
+            print(f"merged {len(base)} curated + {len(ix)} indexed -> {len(terms)} unique")
         if len(terms) > a.limit:
             # Never silently truncate: say what was dropped and on what rule.
             terms.sort(key=lambda t: (-ix[t].get("seen", 1), t))

@@ -30,8 +30,12 @@ if [ ! -s "$WD/$BASE.transcript.json" ]; then
   # never been shown, because the corpus-wide list had no reason to rank it.
   # Runs before transcription or it does nothing for this meeting.
   python3 "$HERE/../scripts/keyterms_index.py" --meeting "$DATE" --add || true
+  # Emit to the file transcribe_meeting.py actually reads, merged with the
+  # curated list. Emitting anywhere else grows the index and changes nothing,
+  # which is how this would have silently done nothing on the next meeting.
   python3 "$HERE/../scripts/keyterms_index.py" \
-    --emit "$HERE/keyterms/TSD_keyterms_index.json" || true
+    --emit "$HERE/keyterms/TSD_keyterms_2025-2026.json" \
+    --base "$HERE/keyterms/TSD_keyterms_curated.json" || true
   python3 "$HERE/transcribe_meeting.py" "$AUD" --date "$DATE" \
     --speakers "$HERE/speakers_2026.json" --outdir "$WD"
 fi
