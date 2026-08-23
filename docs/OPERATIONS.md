@@ -190,7 +190,9 @@ not a missing conversion.** `_index/converted_pdf.done` is derived state: if it 
 empty, `convert_office.py` reports "to convert 1452" even though all but a handful
 are already in R2. Rebuild it by probing R2 for `<key>.pdf` rather than re-rendering
 the corpus — and seed it with absolute paths, since relative ones match nothing and
-silently re-upload 1,452 identical files. The script now normalises either form.
+silently re-upload 1,452 identical files. The script now normalises either form, and
+`convert_office.py --verify --since <date>` is a step of the ingest wrapper so a
+missing preview is reported at ingest instead of found by hand months later.
 
 **A batch output file can keep changing after it appears.** Wave 39 wrote
 `pk_013.json` three times, each shorter, all after the file first landed and with

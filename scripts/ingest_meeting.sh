@@ -135,6 +135,19 @@ else
   echo "skipped — soffice not on PATH"
 fi
 
+# Verify against R2, not against the done-list. A .docx with no preview PDF is
+# not a broken run -- the ingest still exits 0, the document is still searchable,
+# and the only symptom is that the viewer cannot render it inline, which nobody
+# notices until someone opens it. On 2026-08-18 the upload step had 403'd on an
+# empty secret and five documents sat unpreviewable until a hand check found them.
+# Scoped to the crawl window: the whole corpus takes about a minute and only the
+# meetings just ingested can have regressed.
+# $START is always set and validated by this point, above.
+if ! python3 scripts/convert_office.py --verify --since "$START"; then
+  printf '\n\033[1mWARNING: some documents have no preview PDF (listed above).\033[0m\n'
+  printf 'The ingest itself is fine; those documents just will not render inline.\n\n'
+fi
+
 step "7/7 Check for a new monthly check register"
 # BoardDocs posts the Pentamation register as an ordinary attachment, so it lands
 # in this archive as one more PDF and nothing tells the spending site about it.

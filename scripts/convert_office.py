@@ -3,6 +3,7 @@ the site can preview them inline. Excel is intentionally skipped (the viewer lin
 those out). Resumable via a done-list; re-run to pick up new files.
 
   TSD_BOE_ROOT=<repo>/data/tsd-boe-data python scripts/convert_office.py
+  python scripts/convert_office.py --verify [--since YYYY-MM-DD] [--repair]
 
 The ingest-worker secret comes from tsd_secrets (env var, else the secrets file
 outside the repo), the same as every other uploader. It used to be read straight
@@ -11,6 +12,7 @@ secret and every PUT came back 403 -- silently, because the failures print per
 file and the run still exits 0.
 """
 import os, sys, shutil, tempfile, subprocess, urllib.request, urllib.parse
+import concurrent.futures as _cf
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -38,7 +40,70 @@ def upload(pdf: Path, key: str):
     urllib.request.urlopen(req, timeout=180).read()
 
 
+R2GET = "https://media.karpowitsch.org/"
+
+
+def in_r2(src: Path) -> tuple[Path, bool]:
+    """HEAD the preview PDF. R2 is the only honest answer here.
+
+    The done-list cannot answer it: on 2026-08-22 it was empty while 1,447 of
+    1,452 previews were present, and it has also been *fuller* than the corpus
+    after a seeding bug wrote relative paths that matched nothing. Derived state
+    that can be wrong in both directions is not a coverage check.
+    """
+    url = R2GET + urllib.parse.quote(r2key(src))
+    try:
+        req = urllib.request.Request(url, method="HEAD", headers={"user-agent": "Mozilla/5.0"})
+        return src, urllib.request.urlopen(req, timeout=25).status == 200
+    except Exception:
+        return src, False
+
+
+def office_files():
+    return [p for p in ROOT.rglob("*") if p.suffix.lower() in EXTS
+            and not any(x.startswith("_") for x in p.relative_to(ROOT).parts)]
+
+
+def verify(since="", repair=False) -> int:
+    """Report every Office document with no preview PDF in R2.
+
+    --since scopes to meeting folders on or after a date, which is what the
+    ingest wrapper passes: probing the whole corpus takes about a minute and
+    only the meetings just ingested can have regressed.
+    """
+    files = [p for p in office_files()
+             if not since or p.relative_to(ROOT).parts[0][:10] >= since]
+    if not files:
+        print(f"preview check: no Office documents on/after {since}")
+        return 0
+    have, missing = [], []
+    with _cf.ThreadPoolExecutor(max_workers=24) as ex:
+        for src, ok in ex.map(in_r2, files):
+            (have if ok else missing).append(src)
+    scope = f" on/after {since}" if since else ""
+    print(f"preview check{scope}: {len(have)}/{len(files)} Office documents have a preview PDF")
+    if repair:
+        prior = {l for l in (DONE.read_text().splitlines() if DONE.exists() else []) if l.strip()}
+        merged = sorted({str(p) for p in have} | {l for l in prior if Path(l).is_absolute()})
+        DONE.write_text("\n".join(merged) + "\n")
+        print(f"  done-list rebuilt from R2: {len(merged)} entries")
+    if missing:
+        print(f"  MISSING {len(missing)} preview(s) — the viewer cannot render these inline:")
+        for p in missing[:20]:
+            print(f"    {p.relative_to(ROOT)}")
+        if len(missing) > 20:
+            print(f"    … and {len(missing)-20} more")
+        print("  fix: python3 scripts/convert_office.py   (then re-run --verify)")
+        return 1
+    return 0
+
+
 def main():
+    if "--verify" in sys.argv:
+        since = ""
+        if "--since" in sys.argv:
+            since = sys.argv[sys.argv.index("--since") + 1]
+        return verify(since, repair="--repair" in sys.argv)
     # The done-list holds ABSOLUTE paths, because ROOT is resolved absolute above.
     # Seeding it with relative paths silently matches nothing and re-converts the
     # whole corpus -- 1,452 files re-rendered and re-uploaded to replace identical
