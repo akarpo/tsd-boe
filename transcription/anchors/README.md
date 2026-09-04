@@ -23,20 +23,27 @@ are chronological. Leave them in the order things happened.
 
 ## First time anchoring a NEW meeting
 
-`brief.py` reads a workdir (`scratch/anchors-rebuild/`, or `ANCHORS_DATA`) that is
-regenerable from D1 and therefore not committed. For a meeting that has never been
-anchored it simply raises `FileNotFoundError`, which reads like a broken tool
-rather than a missing input. Build the two files first:
+`brief.py`, `coverage.py`, `qa_numbers.py` and `number_anchors.py` read a workdir
+(`scratch/anchors-rebuild/`, or `ANCHORS_DATA`) that is regenerable from D1 and
+therefore not committed. Nothing used to write it for a new meeting — the files
+were exported once during the August 2026 rebuild — so `brief.py` raised
+`FileNotFoundError` and `number_anchors.py` skipped the meeting with a `KeyError`,
+which is how 2026-08-18 shipped with no agenda numbers. Build the inputs first:
 
 ```bash
-python3 anchors/fetch_agenda.py 2026-08-18        # the full numbered outline
-# agendas.json  <- {"<date>": {"name": ..., "agenda": [{"item","title"}, ...]}}
-# cur_<date>.json <- SELECT start_ms,label FROM transcript_anchors WHERE meeting_date=...
+python3 anchors/prep_meeting.py 2026-09-01                      # from D1
+python3 anchors/prep_meeting.py 2026-09-01 --transcript "…/Troy School Board Meeting - 2026-09-01.transcript.json"
+#   before upload_transcript.py has run: utterances (with names, via the sibling
+#   .speakers.json) come from the local transcript instead
 ```
 
+It writes `agenda_outlines.json[date]` (the full numbered outline, also into the
+committed copy next to these tools), `agendas.json[date]`, `meetings.tsv`,
+`utts_<date>.json` and `cur_<date>.json`.
+
 Note that BoardDocs' own outline carries typos ("Budget Reducations Update",
-"Bond Projecgts Status Update"). Spell the chapter labels correctly; they are what
-the public reads in the YouTube description.
+"Bond Projecgts Status Update", "MASAB"). Spell the chapter labels correctly; they
+are what the public reads in the YouTube description.
 
 ## The loop
 

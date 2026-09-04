@@ -135,6 +135,16 @@ failure modes to check for:
   public commenter shared cluster I; a few utterances of a second trustee rode
   along with an adjacent one (E).
 
+**The identifier is a text model and loses to transcript evidence.** On 2026-09-01 it
+named the trustee who says "Vital had similar feedback" as Vital Anne and left the
+chair unmapped. Cheap levers that settled every cluster that night: who speaks right
+before "what Nancy said"; who answers when the chair says "Matt?"; who volunteers as
+delegate just before the superintendent lists the delegates; a former teacher's "when
+I taught 3rd grade"; and cross-checking a persona (grown kids vs. a child on
+Schoology) against the same trustee's lines in earlier attributed transcripts. Write
+the resolved `mapping` into the spec with a note per name and run the transcriber
+offline — it skips the API when `mapping` is present.
+
 `speakers.json` (see `transcription/examples/2026-07-22/`) is the reconciliation
 record: `speakers[]` feeds the API (`description` strongly guides matching),
 `mapping` stores the resolved result, `overrides` pins corrections, and
@@ -350,9 +360,12 @@ field, which is the recorded channel title.
 2. `transcribe_meeting.py MEDIA --date …` (~$0.40). Draft `speakers.json` from
    the roll call; run with `--speakers`; verify with the levers above.
 3. Build the agenda anchors — **`make_anchors.py` output is a draft, not an
-   answer**. Run `anchors/brief.py DATE`, author the anchor set, apply it with
-   `anchors/apply_anchors.py`, which validates the set and runs the coverage gate.
-   See [transcription/anchors/README.md](../transcription/anchors/README.md).
+   answer**. Run `anchors/prep_meeting.py DATE --transcript <the .transcript.json>`
+   to build the workdir inputs, then `anchors/brief.py DATE`, author the anchor set
+   with its agenda numbers in `items`, and apply it with `anchors/apply_anchors.py`
+   (after step 4 — it reads the `recordings` row), which validates the set and runs
+   the coverage gate. See
+   [transcription/anchors/README.md](../transcription/anchors/README.md).
 4. `upload_transcript.py … --youtube ID` (wrangler `--remote`).
 5. Done — the meeting page picks it up on next load.
 

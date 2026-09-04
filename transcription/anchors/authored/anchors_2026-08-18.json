@@ -1,66 +1,120 @@
 [
  {
   "t": "0:00:00",
+  "items": [
+   "1"
+  ],
   "label": "Call to Order and Pledge of Allegiance"
  },
  {
   "t": "0:00:38",
+  "items": [
+   "3"
+  ],
   "label": "Public Communication (Agenda Items)"
  },
  {
   "t": "0:01:47",
+  "items": [
+   "4"
+  ],
   "label": "Consent Agenda: Minutes, Treasurer's Report, Schools of Choice, Meeting Reschedule"
  },
  {
   "t": "0:02:24",
+  "items": [
+   "8.A"
+  ],
   "label": "Business: Troy Career Center Lease Consideration"
  },
  {
   "t": "0:07:28",
-  "label": "Vote: Five-Year Troy Career Center Lease Awarded to L. Mason Capitani"
+  "label": "Vote: Five-Year Troy Career Center Lease Awarded to L. Mason Capitani",
+  "items": [
+   "8"
+  ],
+  "_inherited": true
  },
  {
   "t": "0:08:04",
+  "items": [
+   "8.B"
+  ],
   "label": "Report: Budget Reductions Update"
  },
  {
   "t": "0:13:43",
-  "label": "Budget: Departures, Buyouts and Replacement Hiring"
+  "label": "Budget: Departures, Buyouts and Replacement Hiring",
+  "items": [
+   "8"
+  ],
+  "_inherited": true
  },
  {
   "t": "0:18:53",
-  "label": "Budget: Fund Balance and Multi-Year Projections"
+  "label": "Budget: Fund Balance and Multi-Year Projections",
+  "items": [
+   "8"
+  ],
+  "_inherited": true
  },
  {
   "t": "0:24:31",
-  "label": "Budget: Positions Restored After Board and Community Feedback"
+  "label": "Budget: Positions Restored After Board and Community Feedback",
+  "items": [
+   "8"
+  ],
+  "_inherited": true
  },
  {
   "t": "0:25:29",
-  "label": "Board Questions: Long-Term Substitutes in Classrooms"
+  "label": "Board Questions: Long-Term Substitutes in Classrooms",
+  "items": [
+   "8"
+  ],
+  "_inherited": true
  },
  {
   "t": "0:31:22",
-  "label": "Board Questions: Special Education and Secondary ELD Staffing"
+  "label": "Board Questions: Special Education and Secondary ELD Staffing",
+  "items": [
+   "8"
+  ],
+  "_inherited": true
  },
  {
   "t": "0:33:26",
+  "items": [
+   "9"
+  ],
   "label": "Public Communication (Non-Agenda Items)"
  },
  {
   "t": "0:40:05",
+  "items": [
+   "10.A"
+  ],
   "label": "Report: Bond Projects Status Update"
  },
  {
   "t": "0:45:03",
+  "items": [
+   "10.B"
+  ],
   "label": "Report: Enrollment Update"
  },
  {
   "t": "0:52:15",
-  "label": "Report: MASAB Strategic Plan"
+  "items": [
+   "10.C"
+  ],
+  "label": "Report: MASB Strategic Plan"
  },
  {
   "t": "1:11:16",
+  "items": [
+   "12"
+  ],
   "label": "Adjournment"
  }
 ]

@@ -13292,6 +13292,102 @@
     "DW8L3A548DE5": {
       "meeting_unid": "DW2H6H46F866",
       "name": "SpecialEducation_Board_Narrative_Summary.pdf"
+    },
+    "DWWRGZ6E00C0": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "5D Reschedule Sept 15 Board Mtg to Sept 22.doc"
+    },
+    "DWWRP86EEA43": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "5 ConsentRes.doc"
+    },
+    "DWYGCR4331B3": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "5C IAE SOC Resolution for the 2027-2028 School Year.doc"
+    },
+    "DWYGD4433E54": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "8.A. TCC lease resolution.docx"
+    },
+    "DWYGD8434311": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
+    },
+    "DWYGDB43461D": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "8.A. Letter of Rec - RFP 2526-29 MI Works! Troy Office Space Lease 070726.pdf"
+    },
+    "DWYGDD434861": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "8.A. Bid Tabulation - RFP 2526-29 MI Works Office Lease - Troy Location.pdf"
+    },
+    "DX2M44595CC7": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "12 - June 2026 Treasurers Letter.pdf"
+    },
+    "DX2M46595EF0": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "12 June 2026 Check Register .pdf"
+    },
+    "DX2M48595FB7": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "12 June 2026 P Card Report.pdf"
+    },
+    "DX2M4A595DD1": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "12 June 2026 ACH Report.pdf"
+    },
+    "DX2M4C596098": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "June 2026 Financials.pdf"
+    },
+    "DX3P5K62F307": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "8.A. L Mason Capitani Bid Submittal.pdf"
+    },
+    "DX4Q5P67A86B": {
+      "meeting_unid": "DWUKS2533419",
+      "name": "M072226BdMtg.docx"
+    },
+    "DXAML25BB2CF": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "masb call for delegates.pdf"
+    },
+    "DXAML45BB4BE": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "2026 Annual Leadership Conference.png"
+    },
+    "DXAML65BB669": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "masb schedule at a glance.png"
+    },
+    "DXAML65BB775": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "masb general info.png"
+    },
+    "DXAMLC5BBDE7": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "NSBA Advocacy Institute 2027.png"
+    },
+    "DXAMLD5BBFB4": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "NSBA AdvocacyInst 2027.png"
+    },
+    "DXAMLS5BCB16": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "NSBA Annual Conference 2027.png"
+    },
+    "DXCR8Q6CC9F1": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "4.b. Fleet Management TSD Final PZ_.pdf"
+    },
+    "DXGNY9622C60": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "TSD_Board_Enrollment_Summary_2627.docx"
+    },
+    "DXHQNX6A2F2A": {
+      "meeting_unid": "DXAKDY516FC8",
+      "name": "SP - overview - Troy.pptx"
     }
   },
   "meetings": {
@@ -14690,6 +14786,10 @@
     "DWUKS2533419": {
       "date": "2026-08-18",
       "name": "Regular Meeting of the Board of Education 6:00 PM"
+    },
+    "DXAKDY516FC8": {
+      "date": "2026-09-01",
+      "name": "Board of Education Workshop 6:00 PM"
     }
   }
 }

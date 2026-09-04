@@ -4,7 +4,7 @@ Open work, newest planning first. This is the single forward-looking list — `C
 records what happened, this records what has not. When an item ships, move a line to the
 changelog and delete it here rather than leaving a checked box behind.
 
-Last reviewed **2026-08-21**.
+Last reviewed **2026-09-04**.
 
 ---
 
@@ -14,6 +14,14 @@ Everything SMS-related is built and verified. The YouTube channel is finished to
 2026-08-19: all 41 descriptions rebuilt from the corrected D1 anchors, the thumbnail backlog
 cleared with `thumbnails.py --audit` reading 51/51 crest cards, and the agenda numbering fixed
 and gated by a check that can now see the class of error that slipped past it.
+
+**The 2026-09-01 workshop is ingested through chapters** (2026-09-04): 10 documents
+summarized, a 3:48 transcript with all ten speakers named from evidence, 22 numbered
+chapters authored. The video leg — upload, `recordings` row, captions, description —
+waited on a re-minted YouTube token; see `CHANGELOG.md` for the state it reached.
+The same session found two silent regressions: BoardDocs deep links had been missing
+for every meeting since August (attachment path changed to `pfiles`), and the
+2026-08-18 chapters carried no agenda numbers. Both are fixed.
 
 **The 2026-08-18 meeting is fully ingested** — 14 documents, the June 2026 check
 register handed to `tsd-checkregister`, and the TelVue recording on YouTube as

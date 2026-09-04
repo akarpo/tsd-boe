@@ -88,23 +88,16 @@ tiers non-empty — because `--store-dir` silently skips a file it can't parse.
 ## BoardDocs deep-link map
 
 `bd_links.js` (bundled into the worker) is generated from `boarddocs_unids.json`;
-regenerate it after a fresh crawl updates the identifiers:
+regenerate it after a crawl records new file identifiers:
 
 ```bash
-python3 - <<'PY'
-import json
-u=json.load(open('boarddocs_unids.json')); files,meetings=u['files'],u['meetings']
-byName={}; byDateName={}
-for fid,info in files.items():
-    mu=info['meeting_unid']; nm=info['name']; md=meetings.get(mu,{}).get('date','')
-    byName.setdefault(nm,set()).add(mu); byDateName[f'{md}|{nm}']=mu
-byNameU={n:list(v)[0] for n,v in byName.items() if len(v)==1}
-open('bd_links.js','w').write(
-  'export const BD_BASE="https://go.boarddocs.com/mi/troysd/Board.nsf/goto?open&id=";\n'
-  'export const BD_BY_DATENAME='+json.dumps(byDateName,separators=(",",":"))+';\n'
-  'export const BD_BY_NAME='+json.dumps(byNameU,separators=(",",":"))+';\n')
-PY
+python3 scripts/gen_bd_links.py      # rewrites bd_links.js in the committed layout, prints +/-/~ counts
 ```
+
+The Worker maps `<meeting_date>|<file>` (or the bare file name when it is unique)
+to the meeting's UNID and links to `goto?open&id=<UNID>`. A meeting whose files
+carry no identifier gets no link and nothing else fails — that is how the
+`pfiles` path change hid for three meetings.
 
 ## Deploy (Git-connected Worker)
 
@@ -294,11 +287,21 @@ cp <workdir>/"Troy School Board Meeting - <date>".srt \
 python3 transcription/upload_captions.py --only <date>        # add the id to MEETINGS first
 
 # 5. chapters — the YouTube description IS the anchors
-python3 transcription/anchors/fetch_agenda.py <date>
+python3 transcription/anchors/prep_meeting.py <date>          # workdir inputs: outline, utts, cur
+#   (before step 4 has run: add --transcript <workdir>/"Troy School Board Meeting - <date>.transcript.json")
 python3 transcription/anchors/brief.py <date>                 # author from this
 python3 transcription/anchors/apply_anchors.py <date> transcription/anchors/authored/anchors_<date>.json
 python3 transcription/anchors/push_pending.py
 ```
+
+**Two traps from 2026-09-04.** BoardDocs now serves attachments under
+`/pfiles/<UNID>/$file/`; a crawler that only recognises `/files/` downloads every
+document and records no identifier, and the only symptom is that the site's "open on
+BoardDocs" link is missing — check `boarddocs_unids.json` has file entries for the
+meeting. And the YouTube refresh token expires 7 days after issuance if it was minted
+while the OAuth consent screen was in Testing, whatever happened to the screen since;
+`upload_videos.py` then fails at `access_token()` with HTTP 400 before sending a byte.
+`transcription/reauth_youtube.py` re-mints it (browser consent required).
 
 **Order that matters, each learned by getting it wrong:** R2 before D1, or
 `--new-only` treats "in D1" as "in R2" and the viewer 404s. Keyterms before

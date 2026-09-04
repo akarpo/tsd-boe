@@ -1,4 +1,34 @@
 {
+ "Add-on Registration": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Add-on Registration Options": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Advocacy Institute": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "Advocacy Policy": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "Advocacy Policy Cohort": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
  "Alameda County": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -16,6 +46,24 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Annual Conference": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "Annual Leadership": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "Annual Leadership Conference": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
  },
  "Anthony Morse": {
   "first_added": "2026-08-21",
@@ -53,10 +101,17 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Blue Seal": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
  "Boulan Park": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
-  "seen": 1,
+  "last_meeting": "2026-09-01",
+  "seen": 2,
   "source": "M072226BdMtg.docx"
  },
  "Brian Canfield": {
@@ -70,6 +125,12 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Brooke Wooley": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
  },
  "Butterfield Dr": {
   "first_added": "2026-08-21",
@@ -95,6 +156,12 @@
   "seen": 1,
   "source": "12 - June 2026 Treasurers Letter.pdf"
  },
+ "Capitol Hill": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
  "Career Readiness": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -107,17 +174,59 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Centennial Way": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
+ "Certify Delegates": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
  "Christine DiPilato": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Closing General": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "Closing General Session": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "Conference Registration": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Conference Registration Rates": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
  "Continuing Ed": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Count Day": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "TSD_Board_Enrollment_Summary_2627.docx"
  },
  "D. What": {
   "first_added": "2026-08-21",
@@ -155,6 +264,12 @@
   "seen": 1,
   "source": "12 - June 2026 Treasurers Letter.pdf"
  },
+ "Delegate Assembly": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
  "Denise Van": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -185,6 +300,12 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Duke Street": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA AdvocacyInst 2027.png"
+ },
  "Early Childhood": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -203,11 +324,35 @@
   "seen": 1,
   "source": "12 - June 2026 Treasurers Letter.pdf"
  },
+ "Education Luncheon": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
  "Employee Services": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Enterprise Fleet": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Enterprise Fleet Management": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Enterprise Fleet Management's": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
  },
  "Erin Detmer": {
   "first_added": "2026-08-21",
@@ -220,6 +365,30 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Event Policies": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Experiential Learning": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Experiential Learning Site": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Experiential Learning Site Visits": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
  },
  "Familial PA-": {
   "first_added": "2026-08-21",
@@ -239,11 +408,35 @@
   "seen": 1,
   "source": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
  },
+ "Federal Advocacy": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
  "Finance Director": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Fireside Chats": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Fleet Management": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Fleet Profile": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
  },
  "Friedman Real": {
   "first_added": "2026-08-21",
@@ -275,11 +468,23 @@
   "seen": 1,
   "source": "12 - June 2026 Treasurers Letter.pdf"
  },
+ "General Sessions": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
  "Grand River": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
+ },
+ "Greg Janicki": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "SP - overview - Troy.pptx"
  },
  "Harleen Singh": {
   "first_added": "2026-08-21",
@@ -287,11 +492,53 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Highway Loss": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Highway Loss Data": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Highway Loss Data Institute": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Highway Safety": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
+ },
+ "Hotel Accommodations": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "How NSBA": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
  "Inacomp TSG": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Insurance Institute": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "4.b. Fleet Management TSD Final PZ_.pdf"
  },
  "Interim Finance": {
   "first_added": "2026-08-21",
@@ -377,6 +624,12 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Judy Holmes": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
  "Julia Maria": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -406,6 +659,12 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Key Work": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "SP - overview - Troy.pptx"
  },
  "Kris Griffor": {
   "first_added": "2026-08-21",
@@ -455,6 +714,18 @@
   "seen": 1,
   "source": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
  },
+ "Lansing Center": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "Leadership Lessons": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
  "Lease Period": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -472,6 +743,48 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "MASB's Annual": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
+ "MASB's Annual Leadership": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
+ "MASB's Annual Leadership Conference": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
+ "MASB's Delegate": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "MASB's Delegate Assembly": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "MI SoundBoard": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "MI SoundBoard Live": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
  },
  "MI Works": {
   "first_added": "2026-08-21",
@@ -497,11 +810,35 @@
   "seen": 1,
   "source": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
  },
+ "Magna Awards": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Magna Awards Breakfast": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Main Conference": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
  "Managing Partner": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "8.A. L Mason Capitani Bid Submittal.pdf"
+ },
+ "Marriott Marquis": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA AdvocacyInst 2027.png"
  },
  "Mason L. Capitani": {
   "first_added": "2026-08-21",
@@ -545,6 +882,12 @@
   "seen": 1,
   "source": "8.A. Letter of Rec - RFP 2526-29 MI Works! Troy Office Space Lease 070726.pdf"
  },
+ "Microsoft Dynamics": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
  "Microsoft Teams": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -568,6 +911,60 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "NSBA Advocacy": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "NSBA Advocacy Institute": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "NSBA Annual": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "NSBA Annual Conference": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "NSBA Federal": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "NSBA Federal Advocacy": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "National School Boards": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "National School Boards Association": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "National School Boards Association's": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
  },
  "New King": {
   "first_added": "2026-08-21",
@@ -641,11 +1038,41 @@
   "seen": 1,
   "source": "8.A. Bid Tabulation - RFP 2526-29 MI Works Office Lease - Troy Location.pdf"
  },
+ "Opening General": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
+ "Opening General Session": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Advocacy Institute 2027.png"
+ },
  "Other Funds": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "12 - June 2026 Treasurers Letter.pdf"
+ },
+ "Own Your": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "Own Your Story": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
+ },
+ "PO Box": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA AdvocacyInst 2027.png"
  },
  "Patrick Griffin": {
   "first_added": "2026-08-21",
@@ -664,6 +1091,12 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "M072226BdMtg.docx"
+ },
+ "Preconference Workshops": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
  },
  "Procurement RFP": {
   "first_added": "2026-08-21",
@@ -719,6 +1152,18 @@
   "seen": 1,
   "source": "8.A. Letter of Rec - RFP 2526-29 MI Works! Troy Office Space Lease 070726.pdf"
  },
+ "Registration Checklist": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Registration Details": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA AdvocacyInst 2027.png"
+ },
  "Reports Budget": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -761,6 +1206,18 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Rural Education": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Rural Education Breakfast": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
  "Ryan Brinks": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -797,6 +1254,18 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Saturday's Magna": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Saturday's Magna Awards": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
  "Scott Keen": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -832,6 +1301,24 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "8.A. Bid Tabulation - RFP 2526-29 MI Works Office Lease - Troy Location.pdf"
+ },
+ "State Continuing": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb general info.png"
+ },
+ "State Continuing Education": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb general info.png"
+ },
+ "State Continuing Education Clock Hours": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb general info.png"
  },
  "State SIGMA": {
   "first_added": "2026-08-21",
@@ -875,6 +1362,18 @@
   "seen": 1,
   "source": "M072226BdMtg.docx"
  },
+ "Strategic Planning": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "SP - overview - Troy.pptx"
+ },
+ "Strategic Planning Retreat": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "SP - overview - Troy.pptx"
+ },
  "Sue Kwapik": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -886,6 +1385,12 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
+ },
+ "TCCHS Virtual": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "TSD_Board_Enrollment_Summary_2627.docx"
  },
  "TSD Purchasing": {
   "first_added": "2026-08-21",
@@ -929,6 +1434,30 @@
   "seen": 1,
   "source": "8.A. 2026 Lease Rationale - MI Works! Troy RFP2526-29.pdf"
  },
+ "Thursday's Delegate": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb general info.png"
+ },
+ "Thursday's Delegate Assembly": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb general info.png"
+ },
+ "Thursday-evening Delegate": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Thursday-evening Delegate Assembly": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
  "Tower Dr": {
   "first_added": "2026-08-21",
   "first_meeting": "2026-08-18",
@@ -946,6 +1475,18 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "8.A. L Mason Capitani Bid Submittal.pdf"
+ },
+ "Upcoming Events": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb schedule at a glance.png"
+ },
+ "Urban Boards": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
  },
  "Vernon Burden": {
   "first_added": "2026-08-21",
@@ -1018,5 +1559,23 @@
   "first_meeting": "2026-08-18",
   "seen": 1,
   "source": "8.A. L Mason Capitani Bid Submittal.pdf"
+ },
+ "What MASB": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "masb call for delegates.pdf"
+ },
+ "What NSBA": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "NSBA Annual Conference 2027.png"
+ },
+ "Your Feet": {
+  "first_added": "2026-09-04",
+  "first_meeting": "2026-09-01",
+  "seen": 1,
+  "source": "2026 Annual Leadership Conference.png"
  }
 }

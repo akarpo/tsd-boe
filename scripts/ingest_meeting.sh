@@ -28,7 +28,7 @@
 #   --no-prep      Skip the summary batch prep (ingest only).
 #   -h, --help     This message.
 #
-# Env: TSD_BOE_ROOT (corpus root, default ~/Downloads/tsd-boe-data)
+# Env: TSD_BOE_ROOT (corpus root, default <repo>/data/tsd-boe-data)
 #      TSD_BATCH_DIR (default /tmp/tsd_batches), TSD_OUT_DIR (default /tmp/tsd_out)
 #      BD_BROWSER (auto|always|never) — headless-Chrome fallback when BoardDocs
 #        blocks the plain HTTP client; passed through to download_troysd.py
@@ -71,7 +71,7 @@ printf '%s' "$START" | grep -qE '^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[0
 cd "$REPO"
 command -v python3 >/dev/null || die "python3 not found"
 
-CORPUS="${TSD_BOE_ROOT:-$HOME/Downloads/tsd-boe-data}"
+CORPUS="${TSD_BOE_ROOT:-$REPO/data/tsd-boe-data}"   # same default as the Python steps
 echo "repo:   $REPO"
 echo "corpus: $CORPUS"
 echo "window: $START -> today"

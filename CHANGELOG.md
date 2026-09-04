@@ -5,6 +5,47 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
 
 ## [Unreleased]
 
+### Meeting 2026-09-01 (workshop) ingested; deep links and numbering repaired — 2026-09-04
+
+- **BoardDocs**: 10 documents (13 chunks) — the Enterprise fleet analysis, the
+  strategic-planning deck, the 2026–27 enrollment memo and seven MASB/NSBA conference
+  captures — extracted, pushed to R2, loaded into D1 and summarized in all three tiers.
+  The keyterm index grew 170 → 263 terms (576 sent to the recognizer).
+- **Video**: TelVue media 1043840 (3:48:28, matching the listed runtime) downloaded at
+  720p. Reached YouTube only after the refresh token was re-minted — see below.
+- **Transcript**: 1,110 utterances, 9 clusters, 10 speakers named, 0.0% unattributed.
+  Five of seven trustees attended (Alic and Potts absent, both named delegate and
+  alternate in absentia); Dan Trudel presented remotely; the MASB consultant and the
+  HR assistant superintendent shared one cluster and are separated by a time split.
+  Every name in the per-meeting spec carries the transcript evidence for it. The API
+  identifier, run once as a cross-check, got two clusters wrong — it named the trustee
+  who refers to "Vital" in the third person "Vital Anne" — so the evidence-based
+  `mapping` was applied offline instead.
+- **Chapters**: 22 authored with agenda numbers. `qa_numbers` raises one ORDER flag,
+  genuine: a bond contractor item came up during Business Services.
+- **BoardDocs deep links had been silently missing since August.** BoardDocs now serves
+  attachments under `/pfiles/<UNID>/$file/`; the crawler's regex only knew `/files/`,
+  so 2026-08-18 (14 files) and 2026-09-01 (10) recorded no identifiers and the site had
+  no "open on BoardDocs" link for either. Regex fixed, both meetings re-walked,
+  `bd_links.js` regenerated (52 entries added, none changed).
+- **2026-08-18's chapters had shipped without agenda numbers.** The meeting was never
+  added to the outline map the numbering pass reads, so `number_anchors.py` skipped it
+  with a KeyError and D1 carried bare labels. Numbered now (consent chapter as section
+  4, the outline's "MASAB" typo corrected) and re-applied; description rebuild queued.
+- **`transcription/anchors/prep_meeting.py`** builds every workdir input the anchor
+  tools read — outline, agendas, meetings.tsv, utterances, current anchors — for one
+  meeting, from D1 or, before upload, from a local transcript. Nothing had written
+  those files for a new meeting since the August rebuild: `brief.py` raised
+  FileNotFoundError and three files had to be edited by hand. It also keeps the
+  committed outline and meeting list current.
+- **`anchors/coverage.py` is now in the repo.** The docs cited it; it only existed in
+  the gitignored workdir.
+- **The YouTube refresh token expired** (`invalid_grant`, "Token has been expired or
+  revoked"). It was minted on 2026-08-17 while the consent screen was still in
+  *Testing*; Google fixes the 7-day expiry at issuance, so publishing the app the same
+  day did not extend it — `reauth_youtube.py`'s docstring claimed the opposite. Any
+  token minted before the switch has to be re-minted once after it.
+
 ### Meeting 2026-08-18 ingested end to end — 2026-08-21
 
 - **BoardDocs**: 14 documents extracted, chunked (185 chunks), pushed to R2 and

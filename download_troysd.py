@@ -127,7 +127,7 @@ FILE_RE = re.compile(
     r'(?P<text>.*?)</a>',
     re.I | re.S,
 )
-FILE_UNID_RE = re.compile(r'/files/(?P<unid>[A-Z0-9]+)/\$file/', re.I)
+FILE_UNID_RE = re.compile(r'/p?files/(?P<unid>[A-Z0-9]+)/\$file/', re.I)
 INVALID_FN = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 MEETING_DIR_RE = re.compile(r'\d{4}-\d{2}-\d{2}_')
 DATE_TERM_RE = re.compile(r'\d{4}(-\d{2}(-\d{2})?)?$')

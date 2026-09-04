@@ -9,8 +9,11 @@ tokens should now be long-lived and this script should rarely be needed.
 
 Reach for it if a call starts returning `invalid_grant`: the token is also
 revoked by changing the account password, revoking access in Google Account
-permissions, or 6 months of disuse. Publishing does *not* invalidate an existing
-refresh token -- the one minted before the switch kept working.
+permissions, or 6 months of disuse. Publishing does not *extend* a token minted
+while the screen was in Testing either: Google fixes the 7-day expiry at issuance,
+and the one minted on 2026-08-17 died on schedule (`invalid_grant` on 2026-09-04)
+even though the app had been In production since that day. Re-mint once after
+publishing; that token is long-lived.
 
 Run it, approve in the browser that opens, and it rewrites the secrets file:
 
