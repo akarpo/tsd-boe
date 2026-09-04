@@ -6,8 +6,8 @@ Creates (if needed) and fills three tables the Worker's /api/recording serves:
   transcript_utts    per-utterance rows: start/end ms, attributed speaker, text
   transcript_anchors agenda-item video chapters: start_ms -> label
 
-Speaker names come from the speakers.json spec (resolution order: overrides >
-mapping > raw letter; time-based `splits` handle a cluster that held two people).
+Speaker names come from the speakers.json spec (resolution order: per-utterance
+`reassign` > time-based `splits` > overrides > mapping > raw letter).
 Idempotent: re-running replaces the meeting's rows.
 
 Usage
@@ -29,7 +29,7 @@ import argparse, json, subprocess, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from transcribe_meeting import clean_mapping
+from transcribe_meeting import clean_mapping, namer as _namer, apply_utterance_splits
 
 DB = "tsd-boarddocs"
 
@@ -57,23 +57,11 @@ def q(s):  # SQL single-quote escape
 
 
 def namer(spec):
-    # Same normalisation the transcriber applies: strip the identifier's
-    # split-cluster indices ("Nancy Philippart - 2") and drop "Unknown - N",
-    # so what lands in D1 matches the committed transcript exactly. This file
-    # having its own namer is why the artifact reached the site as well as the
-    # deliverables — fix one, and the other still ships it.
-    mapping = clean_mapping(spec.get("mapping") or {})
-    mapping.update(spec.get("overrides") or {})
-    splits = {s["cluster"]: s for s in spec.get("splits") or []}
-
-    def who(u):
-        sp, st = u["speaker"], u["start"]
-        if sp in splits:
-            s = splits[sp]
-            return s["before"] if st < s["at_ms"] else s["after"]
-        n = mapping.get(sp, sp)
-        return n if n != sp else f"Speaker {sp}"
-    return who
+    # One resolver, shared with the transcriber (transcribe_meeting.namer), so what
+    # lands in D1 matches the committed transcript exactly. This file once had its
+    # own copy, which is why an artifact reached the site as well as the
+    # deliverables — fix one, and the other still shipped it.
+    return _namer(clean_mapping(spec.get("mapping") or {}), spec)
 
 
 def main():
@@ -92,7 +80,12 @@ def main():
     utts = r.get("utterances") or []
     if not utts:
         raise SystemExit("transcript has no utterances (was speaker_labels on?)")
-    who = namer(json.load(open(a.speakers))) if a.speakers else (lambda u: f"Speaker {u['speaker']}")
+    if a.speakers:
+        spec = json.load(open(a.speakers))
+        utts = apply_utterance_splits(utts, spec)   # before namer: splits register reassign rows
+        who = namer(spec)
+    else:
+        who = lambda u: f"Speaker {u['speaker']}"
     anchors = json.load(open(a.anchors)) if a.anchors else []
     d, n = q(a.date), q(a.name)
 

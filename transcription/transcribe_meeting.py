@@ -131,6 +131,41 @@ def clean_mapping(mapping: dict) -> dict:
     return out
 
 
+def apply_utterance_splits(utts: list, spec: dict) -> list:
+    """Split utterances the diarizer ran across a speaker change.
+
+    `utterance_splits`: [{"start_ms": <utterance start>, "at_ms": <absolute ms>,
+    "after": "<name>"}]. The utterance starting at `start_ms` is cut at the first
+    word whose start is >= `at_ms`; the tail becomes its own utterance (same
+    cluster letter) and is pinned to `after` through `reassign`, so the namer needs
+    no special case. Word timings come from the API, so the cut lands on a word
+    boundary; choose `at_ms` from a sliding-window voice scan, not by ear.
+    """
+    splits = {int(s["start_ms"]): s for s in (spec.get("utterance_splits") or [])}
+    if not splits:
+        return utts
+    out = []
+    for u in utts:
+        s = splits.get(int(u["start"]))
+        words = u.get("words") or []
+        if not s or not words:
+            out.append(u); continue
+        k = next((i for i, w in enumerate(words) if w["start"] >= s["at_ms"]), None)
+        if k is None or k == 0:
+            out.append(u); continue
+        head, tail = words[:k], words[k:]
+        a = {**u, "end": head[-1]["end"], "words": head, "text": " ".join(w["text"] for w in head)}
+        b = {**u, "start": tail[0]["start"], "words": tail, "text": " ".join(w["text"] for w in tail)}
+        out += [a, b]
+        # Pin the tail. Kept in the resolved spec (not stripped) so a second pass over
+        # the already-split JSON — upload_transcript.py — resolves it the same way
+        # even though the split itself is then a no-op.
+        rows = spec.setdefault("reassign", [])
+        if not any(x.get("name") == s["after"] and b["start"] in x.get("start_ms", []) for x in rows):
+            rows.append({"name": s["after"], "start_ms": [b["start"]], "_from_split": True})
+    return out
+
+
 def namer(mapping: dict, spec: dict):
     """Compose API mapping + manual overrides + time-based cluster splits.
 
@@ -142,9 +177,16 @@ def namer(mapping: dict, spec: dict):
     mapping = dict(mapping)
     mapping.update(spec.get("overrides") or {})
     splits = {s["cluster"]: s for s in spec.get("splits") or []}
+    # `reassign` pins individual utterances (keyed by start_ms) to a name — for a
+    # cluster that holds two people *interleaved*, which a time split cannot express.
+    # 2026-09-01: the diarizer merged trustees Zendler and Melton into one cluster for
+    # the whole evening; the split came from voice embeddings checked against the video.
+    reassign = {int(ms): r["name"] for r in (spec.get("reassign") or []) for ms in r["start_ms"]}
 
     def who(u):
         sp, st = u["speaker"], u["start"]
+        if st in reassign:
+            return reassign[st]
         if sp in splits:
             s = splits[sp]
             return s["before"] if st < s["at_ms"] else s["after"]
@@ -224,6 +266,7 @@ def main():
             except SystemExit as e:
                 print(f"identification failed ({e}); continuing with overrides/splits only", flush=True)
                 mapping = {}
+        r["utterances"] = apply_utterance_splits(r.get("utterances") or [], spec)
         who = namer(mapping, spec)
         notes = spec.get("notes") or []
         # Persist the resolved spec so upload_transcript.py (and re-runs) share

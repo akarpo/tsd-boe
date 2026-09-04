@@ -38,18 +38,18 @@ def hms(sec):
 
 
 def resolve(spec: dict):
-    """letter → name, exactly as transcribe_meeting.namer composes it."""
-    mapping = dict(spec.get("mapping") or {})
-    mapping.update(spec.get("overrides") or {})
-    splits = {s["cluster"]: s for s in spec.get("splits") or []}
+    """letter → name, exactly as transcribe_meeting.namer composes it.
 
-    def who(u):
-        sp, st = u["speaker"], u["start"]
-        if sp in splits:
-            s = splits[sp]
-            return s["before"] if st < s["at_ms"] else s["after"]
-        return mapping.get(sp, f"Speaker {sp}")
-    return who, mapping
+    Delegates to the transcriber's own resolver so the gate sees per-utterance
+    `reassign` rows and `utterance_splits` too. The gate once had its own copy
+    of the mapping/overrides/splits logic and reported a trustee as MISSING
+    after the 2026-09-01 respec had moved 64 lines to her by `reassign`.
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from transcribe_meeting import clean_mapping, namer, apply_utterance_splits  # noqa: E402
+    mapping = clean_mapping(spec.get("mapping") or {})
+    mapping.update(spec.get("overrides") or {})
+    return namer(mapping, spec), mapping
 
 
 def audit(path: Path, absent: list[str], expect: list[str], samples: int):
@@ -61,6 +61,8 @@ def audit(path: Path, absent: list[str], expect: list[str], samples: int):
     spec_path = path.with_name(path.name.replace(".transcript.json", ".speakers.json"))
     spec = json.loads(spec_path.read_text(encoding="utf-8")) if spec_path.exists() else {}
     who, mapping = resolve(spec)
+    from transcribe_meeting import apply_utterance_splits  # noqa: E402
+    utts = apply_utterance_splits(utts, spec)   # no-op on a JSON the transcriber already split
 
     words, lines, first = {}, {}, {}
     for u in utts:

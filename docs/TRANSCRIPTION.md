@@ -137,13 +137,38 @@ failure modes to check for:
 
 **The identifier is a text model and loses to transcript evidence.** On 2026-09-01 it
 named the trustee who says "Vital had similar feedback" as Vital Anne and left the
-chair unmapped. Cheap levers that settled every cluster that night: who speaks right
-before "what Nancy said"; who answers when the chair says "Matt?"; who volunteers as
-delegate just before the superintendent lists the delegates; a former teacher's "when
-I taught 3rd grade"; and cross-checking a persona (grown kids vs. a child on
-Schoology) against the same trustee's lines in earlier attributed transcripts. Write
-the resolved `mapping` into the spec with a note per name and run the transcriber
-offline — it skips the API when `mapping` is present.
+chair unmapped. Cheap levers settle most clusters: who speaks right before "what Nancy
+said"; who answers when the chair says "Matt?"; who volunteers as delegate just before
+the superintendent lists the delegates. Write the resolved `mapping` into the spec with
+a note per name and run the transcriber offline — it skips the API when `mapping` is
+present.
+
+**A persona match needs the whole persona, and the video beats all of it.** The same
+night's first pass put cluster F on Audra Melton from "on the board for the last year
+and a half" and "I was a delegate last year", and recorded Emina Alic absent because
+no cluster was left for her. The rest of F's persona said otherwise — a junior
+daughter at Troy High, an 8th grader with a summer Algebra packet, a kindergartner
+with classroom iPads, "in all of these years" — and Melton's earlier transcripts have
+grown children and an Athens graduate. One frame grab settled it: the board room is
+multi-camera and the director cuts to the speaker, so a frame from the middle of a
+long turn shows the speaker *and the name plate* — `EMINA ALIC, Board Vice President`.
+The "last year and a half" line was Alic addressing the newer trustees. Grab frames
+before writing a mapping (`ffmpeg -ss H:MM:SS -i tsd_<date>.mp4 -frames:v 1 f.jpg`);
+it costs nothing and it is the only lever that does not depend on reading the
+transcript right.
+
+**Two trustees, one cluster, interleaved all evening.** Melton was in the room the
+whole time; the diarizer had merged her with Zendler into cluster E, and a time
+`split` cannot separate voices that alternate. What worked: speaker embeddings
+(speechbrain ECAPA-TDNN, `spkrec-ecapa-voxceleb`; resemblyzer's GE2E embeddings were
+too coarse — every centroid within 0.9 of every other) for every utterance, seeded
+from turns where the camera is on each speaker, with the other named voices as sinks
+so turns the diarizer dropped into E (DiPilato, Philippart) come out too. A sliding
+4-s window over long turns then shows where one person hands off to the other
+mid-utterance; those are cut at the word boundary. The spec records the result as
+`reassign` (name → utterance `start_ms` list) and `utterance_splits` (start_ms,
+at_ms, after). The sub-second interjections are the least certain lines. The
+scripts live in the session's scratchpad, not the repo — the method is above.
 
 **A first name in a sentence about someone else is not evidence.** The same night,
 "she's going to stick around as long as she can, but Dan is out of town on business
@@ -155,8 +180,13 @@ the minutes, never an inference, and never before it reaches a public post.
 
 `speakers.json` (see `transcription/examples/2026-07-22/`) is the reconciliation
 record: `speakers[]` feeds the API (`description` strongly guides matching),
-`mapping` stores the resolved result, `overrides` pins corrections, and
-`splits` divides a two-person cluster at a timestamp. Once `mapping` is present,
+`mapping` stores the resolved result, `overrides` pins corrections,
+`splits` divides a two-person cluster at a timestamp, `reassign` pins individual
+utterances by `start_ms` (interleaved voices), and `utterance_splits` cuts one
+utterance at a word boundary where the speaker changes. Resolution order is
+reassign > splits > overrides > mapping, in one shared resolver
+(`transcribe_meeting.namer`) that the uploader and the audit gate both import.
+Once `mapping` is present,
 both `transcribe_meeting.py` and `upload_transcript.py` use it directly — no
 further identification calls, so re-runs are offline and deterministic.
 

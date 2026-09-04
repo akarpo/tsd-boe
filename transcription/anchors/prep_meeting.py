@@ -57,23 +57,18 @@ def meeting_name(date):
 
 
 def utts_local(transcript, speakers):
+    # One resolver, shared with the transcriber, uploader and audit gate — this was
+    # the third private copy, and it dropped every `reassign` row of the 2026-09-01
+    # respec (Melton came out with zero lines).
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from transcribe_meeting import clean_mapping, namer, apply_utterance_splits  # noqa: E402
     t = json.load(open(transcript))
     spec_path = Path(speakers) if speakers else Path(transcript).with_suffix("").with_suffix(".speakers.json")
-    mapping, splits = {}, []
-    if spec_path.exists():
-        spec = json.load(open(spec_path))
-        mapping, splits = spec.get("mapping", {}), spec.get("splits", [])
-        for k, v in (spec.get("overrides") or {}).items():
-            mapping[k] = v
-
-    def name(x):
-        for s in splits:
-            if x["speaker"] == s["cluster"]:
-                return s["before"] if x["start"] < s["at_ms"] else s["after"]
-        return mapping.get(x["speaker"], x["speaker"])
-    return [{"start_ms": x["start"], "end_ms": x["end"], "speaker": name(x), "text": x["text"]}
-            for x in t["utterances"]]
-
+    spec = json.load(open(spec_path)) if spec_path.exists() else {}
+    utts = apply_utterance_splits(t["utterances"], spec)
+    who = namer(clean_mapping(spec.get("mapping") or {}), spec)
+    return [{"start_ms": x["start"], "end_ms": x["end"], "speaker": who(x), "text": x["text"]}
+            for x in utts]
 
 def main():
     ap = argparse.ArgumentParser()

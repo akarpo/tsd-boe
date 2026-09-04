@@ -5,6 +5,29 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
 
 ## [Unreleased]
 
+### 2026-09-01 attribution corrected: Alic was cluster F, Melton was merged into Zendler's — 2026-09-04
+
+- **The owner's read was right: the trustee labelled Audra Melton was Emina Alic**, and
+  Alic was not absent. A frame grab from the middle of her long turns shows the name
+  plate `EMINA ALIC, Board Vice President`; her lines (a junior daughter at Troy High,
+  an 8th grader's Algebra packet, "in all of these years") match Alic's earlier
+  transcripts, not Melton's. 138 utterances relabelled.
+- **Melton was in the room the whole evening**, merged by the diarizer into cluster E
+  with Stephanie Zendler. Separated with ECAPA speaker embeddings seeded from camera-
+  confirmed turns (her in-state-PD remark, which Zendler then echoes as "what Audra
+  was saying"; "in my experience as an administrator"; the son-and-homework story):
+  64 utterances to Melton, plus 8 to DiPilato and 4 to Philippart that the diarizer
+  had dropped into E. Four utterances change speaker mid-way and are cut at the word
+  boundary. Six of seven trustees attended; only Potts was absent.
+- **Tooling**: `speakers.json` gains `reassign` (name → utterance start_ms list) and
+  `utterance_splits` (start_ms, at_ms, after); `transcribe_meeting.namer` is now the one
+  resolver, imported by `upload_transcript.py`, `audit_attribution.py` and
+  `anchors/prep_meeting.py` — each had its own copy, which is how the gate reported
+  Melton MISSING after the respec and the anchor input carried zero Melton lines.
+- **Pushed**: D1 `transcript_utts` (1,114 rows), the YouTube caption track, the
+  `transcripts/` deliverables, and the Facebook notes draft (seven attributions).
+  Lesson recorded in TRANSCRIPTION.md: grab a frame before writing a mapping.
+
 ### Documentation and QA pass — 2026-09-04
 
 - **The two newest videos were in no playlist.** Nothing in the new-meeting chain touched
@@ -43,8 +66,8 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
   22 numbered chapters in the description, `recordings` row and 1,110 utterances in D1.
   The 2026-08-18 description was rebuilt in the same push with its new numbering.
 - **Transcript**: 1,110 utterances, 9 clusters, 10 speakers named, 0.0% unattributed.
-  Five of seven trustees attended (Alic and Potts absent, both named delegate and
-  alternate in absentia); the MASB consultant and the
+  ~~Five of seven trustees attended (Alic and Potts absent)~~ — wrong; see the
+  attribution correction above: six attended, only Potts was absent. The MASB consultant and the
   HR assistant superintendent shared one cluster and are separated by a time split.
   Every name in the per-meeting spec carries the transcript evidence for it. The API
   identifier, run once as a cross-check, got two clusters wrong — it named the trustee
