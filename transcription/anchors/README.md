@@ -90,8 +90,8 @@ anchors while writes are blocked, then drain `pending_push.json`.
 ## Agenda numbering
 
 Every chapter carries its BoardDocs agenda number — `8.A`, `4.G`, `6` — because a
-partly-numbered chapter list reads as an oversight. 518 of 540 anchors are
-numbered; the 22 that are not are meeting bookends (Call to Order, Adjournment) on
+partly-numbered chapter list reads as an oversight. 556 of 578 anchors are
+numbered (2026-09-04); the 22 that are not are meeting bookends (Call to Order, Adjournment) on
 workshop agendas that genuinely have no such item, and inventing one for them
 would assert something false.
 

@@ -278,8 +278,12 @@ yt-dlp -f 2390 -o "tsd_<date>.%(ext)s" \
   https://videoplayer.telvue.com/player/i-P7YFZryO9zQNfciKbAQTp5wv5_PLoa/media/<id>
 python3 transcription/upload_videos.py <mp4> --title "<channel title>" \
   --date <date> --name "<D1 meeting_name>"
+python3 transcription/playlists.py --add <youtube-id> --date <date>   # year playlist (50 units)
 
 # 4. transcript (refreshes the keyterm index first, then skips what already exists)
+#    run_meeting.sh pulls audio from YouTube, which fails while a fresh upload is still
+#    processing -- transcode the local file first and the runner skips that step:
+ffmpeg -i tsd_<date>.mp4 -vn -ac 1 -ar 16000 -b:a 64k <workdir>/tsd_<date>.mp3
 transcription/run_meeting.sh <date> "<D1 meeting_name>" <youtube-id> <workdir>
 python3 transcription/name_unknown_speakers.py --d1 <date>   # public commenters
 cp <workdir>/"Troy School Board Meeting - <date>".srt \

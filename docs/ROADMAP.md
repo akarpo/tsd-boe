@@ -29,7 +29,7 @@ register handed to `tsd-checkregister`, and the TelVue recording on YouTube as
 `ciIdYBDoQjw` with transcript, captions and 16 authored chapters. That is the whole
 new-meeting pipeline exercised end to end; see `docs/OPERATIONS.md`.
 
-**The corpus is fully scanned as of 2026-08-21.** All 3,287 documents have extracted
+**The corpus is fully scanned as of 2026-08-21** (3,311 documents as of 2026-09-04). All 3,287 documents then had extracted
 text, are in the FTS index, and carry three summary tiers — reconciled in both directions
 against D1, zero drift. That is up from 2,798 the same morning: 489 documents had never
 been parsed at all and were invisible to search. See

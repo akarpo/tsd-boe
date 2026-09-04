@@ -96,3 +96,15 @@ Each run should print 'inserted' or 'updated' — do not pipe it through tail, w
 5. A caution: once the quota is exhausted even a 50-unit captions.list read returns 403, so verification becomes impossible until the next reset.
 
 If the repository cloned successfully, you may read CHANGELOG.md entries v0.18.0 through v0.18.2 and transcription/upload_captions.py to confirm the twelve dates are still listed in MEETINGS, and say so. If the clone is unavailable, just deliver the reminder from the details above — do not treat that as a failure.
+
+## Session — 2026-09-04 (2026-09-01 workshop end to end; deep links; playlists; QA pass)
+
+Reconstructed by hand: this session ran from `~`, so the repo's `UserPromptSubmit` hook did not fire.
+
+1. **"Please review the tsd-boarddocs project. The September 1st workshop meeting recording is now posted."** → Found TelVue media 1043840 (3:48:28). Ingested the workshop's 10 documents, wrote the three summary tiers, grew the keyterm index, downloaded and transcribed the recording (1,110 utterances, 9 clusters). Found BoardDocs had moved attachments to a `pfiles` path the crawler never matched (no deep links since August) and that the YouTube refresh token had expired.
+2. **"Please pause work, I need to conserve tokens"** → Stopped with a standalone status.
+3. **"Please proceed and pick up where you were interrupted, 5H window has reset"** → Named all ten speakers from transcript evidence (the API identifier got two clusters wrong), authored 22 numbered chapters, fixed the crawler regex and re-walked three meetings, numbered the 2026-08-18 chapters that had shipped bare, added `anchors/prep_meeting.py`, `anchors/coverage.py`, `scripts/gen_bd_links.py`; committed and pushed.
+4. **(Asked how to handle the dead YouTube token; chose "Drive it in Chrome for me")** → Re-minted the refresh token through the browser consent, uploaded the video as `3pJjVfmMOT4`, loaded transcript/anchors/captions, pushed both descriptions, verified chapters render after processing.
+5. **"Check to see if 5H reset, it should have, I just upgraded to 20x"** → Read the usage snapshot: reset confirmed.
+6. **"Please perform a documentation and QA pass"** → Stale counts and claims updated across the docs; D1 integrity checks clean (no duplicate chunk ids, 3,311 docs = 3,311 summaries); found the two recent videos missing from the 2026 playlist, wrote `transcription/playlists.py`, and found three duplicate 2024 uploads sitting in that playlist (deduped); fixed the coverage gate's anchored test; reconstructed this entry.
+7. **"Please see the facebook post … and create a post for the September 1st meeting as a .docx on the desktop"** (+ "also see the reply to the post, which has the whole timestamp and agenda section") → Read the Aug 18 post's format in the group, wrote the Sept 1 notes and the timestamped-agenda reply to `~/Desktop/TSD Board Workshop Notes 2026-09-01.docx`.

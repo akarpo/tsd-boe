@@ -5,6 +5,28 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
 
 ## [Unreleased]
 
+### Documentation and QA pass — 2026-09-04
+
+- **The two newest videos were in no playlist.** Nothing in the new-meeting chain touched
+  the year playlists after they were built by hand in August; 2026-08-18 and 2026-09-01 sat
+  outside "Troy Board of Education — 2026 Meetings". New `transcription/playlists.py`
+  (`--add`, `--sync`, `--dedupe`) adds a video to its year playlist and reads membership first,
+  so re-runs cost nothing. Its first sync also surfaced three 2024 meetings whose playlist
+  entry was a *different* upload than the one the site, captions and D1 use; the duplicates
+  are removed and the tool now reports a same-date twin instead of adding beside it.
+- **D1 integrity, per the runbook**: 48,298 chunk rows with 48,298 distinct ids; 3,311
+  documents, 3,311 summaries, 3,311 `sum:` rows; 43 meetings with recording, utterances and
+  anchors; both Office previews for the new meeting in R2.
+- **YouTube**: the 2026-09-01 caption track is `serving`; after processing finished the watch
+  page renders all 22 chapters (23 `chapterRenderer` markers).
+- **Docs**: season coverage and corpus counts brought to 2026-09-04 (43 videos, 578 anchors,
+  556 numbered), the ingest wrapper's default corpus path matched to the Python steps, the
+  deep-link generator and playlist tool added to TOOLING.md, and a hand-reconstructed
+  session entry in PROMPT_HISTORY.md — the capture hook only fires when Claude is launched
+  inside the repo.
+- `qa_numbers.py` corpus-wide: 16 COVERED and 11 ORDER flags, all reviewed — procedural items
+  folded into a neighbouring chapter, and genuine out-of-sequence agendas.
+
 ### Meeting 2026-09-01 (workshop) ingested; deep links and numbering repaired — 2026-09-04
 
 - **BoardDocs**: 10 documents (13 chunks) — the Enterprise fleet analysis, the

@@ -2,7 +2,7 @@
 #
 # ingest_meeting.sh — pull new BoardDocs meetings into D1 + R2, then prep summaries.
 #
-# Wraps the six-step incremental ingest so the two things that silently ruin a run
+# Wraps the seven-step incremental ingest so the two things that silently ruin a run
 # can't be forgotten:
 #
 #   1. --skip-ingested on the crawl. The crawler's normal skip test is "is the

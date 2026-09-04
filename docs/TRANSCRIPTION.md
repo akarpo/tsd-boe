@@ -244,10 +244,11 @@ minutes say Ryan Stasinski and Brian Fahnestock. The era pass found Fahnestock,
 and found `Katie Starn` where the chair had announced "Katie Skarn", turning two
 speakers that had been demoted to `Public commenter` back into named teachers.
 
-## Season coverage (as of 2026-08-08)
+## Season coverage (as of 2026-09-04)
 
-**All 41 channel videos carry the "English (speaker-attributed)" caption track**
-as of 2026-08-08 — 2024, 2025 and 2026 complete. The last 15 were pushed that
+**All 43 channel videos carry the "English (speaker-attributed)" caption track**
+as of 2026-09-04 — 2024, 2025 and 2026 complete (41 as of 2026-08-08, plus the
+2026-08-18 regular and 2026-09-01 workshop). The last 15 were pushed that
 morning after an API audit found the owed list was wrong in both directions; see
 "Audit before you push captions" below.
 
@@ -261,10 +262,11 @@ morning after an API audit found the owed list was wrong in both directions; see
   specials, and the Jul 16 and Aug 20 regulars — have no recording located
   anywhere; `manifest_2024.json` records them as `src: null` with a note.
 
-- **2026 — complete.** All 12 televised meetings (5 workshops, 7 regulars) live
-  on the site with embed + named transcript + chapters, and caption tracks
-  ("English (speaker-attributed)") on all 12 YouTube videos. Only the Mar 3
-  workshop was never recorded anywhere.
+- **2026 — complete through September 1.** All 14 televised meetings (6 workshops,
+  8 regulars) live on the site with embed + named transcript + chapters, and
+  caption tracks ("English (speaker-attributed)") on all 14 YouTube videos. Only
+  the Mar 3 workshop was never recorded anywhere. New meetings follow
+  [OPERATIONS.md](OPERATIONS.md#the-whole-chain-in-the-order-it-has-to-run).
 - **2025 — complete.** All 19 recorded meetings are transcribed and QA'd (Jan 14,
   May 6, Jul 15, Aug 19 were not televised), and **18 are live on the site** with
   embed, chapters, named transcript and an "English (speaker-attributed)" caption
@@ -411,7 +413,10 @@ Anchor writes cost no YouTube quota (D1); the description rebuild does
 
 Corpus after the 2026-08-18 rebuild: 540 anchors across 41 meetings (from 422),
 zero prose labels, zero truncated, zero duplicated prefixes, zero
-discussed-but-unanchored items.
+discussed-but-unanchored items. As of 2026-09-04: 578 anchors across 43 meetings,
+556 of them numbered; `qa_numbers.py` reads 16 COVERED and 11 ORDER, all
+eyeballed (procedural items folded into a neighbour, and genuine out-of-sequence
+agendas).
 
 ## Thumbnails — why the frame grab is not a frame grab
 
