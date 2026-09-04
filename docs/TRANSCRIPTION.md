@@ -145,6 +145,14 @@ Schoology) against the same trustee's lines in earlier attributed transcripts. W
 the resolved `mapping` into the spec with a note per name and run the transcriber
 offline — it skips the API when `mapping` is present.
 
+**A first name in a sentence about someone else is not evidence.** The same night,
+"she's going to stick around as long as she can, but Dan is out of town on business
+… she's got to take care of the kids" was the superintendent explaining why DiPilato
+would leave early — her husband — and it was read as Trudel being remote. Trudel had
+finished the superintendent's previous sentence from the table four seconds earlier.
+Presence is proven by a person's own in-room turns; absence needs the chair's word or
+the minutes, never an inference, and never before it reaches a public post.
+
 `speakers.json` (see `transcription/examples/2026-07-22/`) is the reconciliation
 record: `speakers[]` feeds the API (`description` strongly guides matching),
 `mapping` stores the resolved result, `overrides` pins corrections, and
@@ -359,8 +367,13 @@ field, which is the recorded channel title.
    upload to YouTube with `upload_videos.py … --date YYYY-MM-DD --name "<meeting
    name as in D1>"`, note the video id. Those two flags are what let the
    thumbnail step typeset a card when the stream never shows one — see below.
-2. `transcribe_meeting.py MEDIA --date …` (~$0.40). Draft `speakers.json` from
-   the roll call; run with `--speakers`; verify with the levers above.
+   Then `playlists.py --add ID --date DATE` — nothing else puts the video in its
+   year playlist.
+2. `transcribe_meeting.py MEDIA --date …` (~$0.40; a 3.8-hour workshop ≈ $1).
+   Transcode the local video yourself rather than letting `run_meeting.sh` fetch
+   audio from YouTube — a fresh upload is still processing and the fetch fails.
+   Draft `speakers.json` from the roll call; run with `--speakers`; verify with the
+   levers above and write the resolved `mapping` back into the spec.
 3. Build the agenda anchors — **`make_anchors.py` output is a draft, not an
    answer**. Run `anchors/prep_meeting.py DATE --transcript <the .transcript.json>`
    to build the workdir inputs, then `anchors/brief.py DATE`, author the anchor set

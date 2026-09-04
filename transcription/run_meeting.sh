@@ -1,5 +1,10 @@
 #!/bin/bash
-# One-shot: YouTube upload of a board meeting -> transcript -> anchors -> D1 (site).
+# One-shot for a board meeting that is ALREADY on YouTube: audio -> keyterms -> transcript
+# -> draft anchors -> D1 (recordings, transcript_utts, transcript_anchors).
+# It does not upload the video (upload_videos.py does), and it fetches the audio from
+# YouTube -- which fails while a fresh upload is still processing. For a new meeting,
+# transcode the local file first and this script skips the fetch:
+#   ffmpeg -i tsd_<date>.mp4 -vn -ac 1 -ar 16000 -b:a 64k <workdir>/tsd_<date>.mp3
 #   usage: run_meeting.sh DATE "MEETING NAME (as in D1 chunks)" YOUTUBE_ID [workdir]
 #   e.g.:  transcription/run_meeting.sh 2026-02-03 "Board of Education Workshop 6 00 PM" SBV4mbIzKlk
 # Idempotent: skips download/transcription when their outputs already exist in workdir.

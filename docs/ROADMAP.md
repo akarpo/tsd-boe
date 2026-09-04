@@ -125,6 +125,17 @@ would remove the class of error. Only worth it if it bites again.
 
 ## Later
 
+### Loose ends from 2026-09-04
+- **`claude/blaine-amendment-tax-credits-wr2b0v`** on GitHub is a cloud session's
+  prompt-history capture from 2026-08-08 (236 lines in `docs/PROMPT_HISTORY.md`, nothing
+  else). Merge it into the history or delete the branch.
+- **The prompt-capture hook only fires when Claude is launched inside the repo.** Sessions
+  started from `~` (this one) leave no trace; their entries are reconstructed by hand.
+  A user-level hook keyed on the working directory would close that.
+- The 2026-09-01 caption track on YouTube carries the speaker spec's earlier header
+  comment (one note called Trudel remote); the cues are unchanged and SRT readers ignore
+  the header, so it was left rather than spend 450 units.
+
 ### Access-control and logging housekeeping
 - **`/admin/users` is capped at `LIMIT 200`** and truncates silently, sorted pending-first. Fine
   at single digits; it will mislead long before it complains.

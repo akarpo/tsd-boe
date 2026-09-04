@@ -82,8 +82,11 @@ timeline; picking a meeting shows its full document set.
 ## BoardDocs deep-links
 
 `boarddocs_unids.json` maps BoardDocs file UNIDs → `{meeting_unid, name}` and
-meeting UNIDs → `{date, name}`. A build step distills this into `bd_links.js`
+meeting UNIDs → `{date, name}`. `scripts/gen_bd_links.py` distills this into `bd_links.js`
 (keyed by `meeting_date|file`, name fallback; 100% doc coverage), bundled into the
+Worker — run it after any crawl that records new file identifiers. BoardDocs moved
+attachments from `/files/<UNID>/` to `/pfiles/<UNID>/` in August 2026; a crawler that
+only knows the old path records nothing and the only symptom is a missing link. It is
 worker. Each result's `boarddocs_url` is
 `https://go.boarddocs.com/mi/troysd/Board.nsf/goto?open&id=<meeting_unid>`, which
 opens the source meeting agenda.

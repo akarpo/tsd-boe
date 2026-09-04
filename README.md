@@ -16,7 +16,7 @@ Cloudflare's **free tier** (D1 + R2 + Workers).
 
 ## What you can do
 
-- **Full-text search** (D1 FTS5 / BM25) over ~2,800 documents (2010–2026) with
+- **Full-text search** (D1 FTS5 / BM25) over ~3,300 documents (2010–2026) with
   filters: meeting type (Regular / Workshop / Special), document type
   (Resolution / Financial / Budget / Policy / Presentation / Contract / Other),
   year (multi-select), and sort (relevance / newest / oldest). Board acronyms

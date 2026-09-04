@@ -26,6 +26,10 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
   inside the repo.
 - `qa_numbers.py` corpus-wide: 16 COVERED and 11 ORDER flags, all reviewed — procedural items
   folded into a neighbouring chapter, and genuine out-of-sequence agendas.
+- Documentation pass: README's document count (~3,300), ARCHITECTURE's deep-link note now
+  names `gen_bd_links.py` and the `pfiles` change, `run_meeting.sh`'s header no longer claims
+  to upload the video, the transcription checklist gains the playlist and local-transcode
+  steps, and the name-in-a-sentence lesson sits with the attribution levers.
 
 ### Meeting 2026-09-01 (workshop) ingested; deep links and numbering repaired — 2026-09-04
 
