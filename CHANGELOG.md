@@ -40,12 +40,16 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
   The 2026-08-18 description was rebuilt in the same push with its new numbering.
 - **Transcript**: 1,110 utterances, 9 clusters, 10 speakers named, 0.0% unattributed.
   Five of seven trustees attended (Alic and Potts absent, both named delegate and
-  alternate in absentia); Dan Trudel presented remotely; the MASB consultant and the
+  alternate in absentia); the MASB consultant and the
   HR assistant superintendent shared one cluster and are separated by a time split.
   Every name in the per-meeting spec carries the transcript evidence for it. The API
   identifier, run once as a cross-check, got two clusters wrong — it named the trustee
   who refers to "Vital" in the third person "Vital Anne" — so the evidence-based
-  `mapping` was applied offline instead.
+  `mapping` was applied offline instead. One inference was wrong and is corrected here:
+  "Dan is out of town on business… she's got to take care of the kids" (1:34:50) is
+  Machesky explaining why DiPilato had to leave early — her husband — not Trudel, who was
+  in the room all evening. A first name in a sentence about someone else is not evidence
+  of anyone's absence.
 - **Chapters**: 22 authored with agenda numbers. `qa_numbers` raises one ORDER flag,
   genuine: a bond contractor item came up during Business Services.
 - **BoardDocs deep links had been silently missing since August.** BoardDocs now serves
