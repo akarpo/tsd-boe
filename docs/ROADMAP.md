@@ -17,8 +17,9 @@ and gated by a check that can now see the class of error that slipped past it.
 
 **The 2026-09-01 workshop is ingested through chapters** (2026-09-04): 10 documents
 summarized, a 3:48 transcript with all ten speakers named from evidence, 22 numbered
-chapters authored. The video leg — upload, `recordings` row, captions, description —
-waited on a re-minted YouTube token; see `CHANGELOG.md` for the state it reached.
+chapters authored, on YouTube as `3pJjVfmMOT4` with captions and chapters, and live on
+the meeting page. The YouTube token had to be re-minted first (its 7-day Testing-era
+expiry was fixed at issuance); the consent is four clicks, documented in OPERATIONS.
 The same session found two silent regressions: BoardDocs deep links had been missing
 for every meeting since August (attachment path changed to `pfiles`), and the
 2026-08-18 chapters carried no agenda numbers. Both are fixed.

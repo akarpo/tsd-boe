@@ -12,7 +12,10 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
   captures — extracted, pushed to R2, loaded into D1 and summarized in all three tiers.
   The keyterm index grew 170 → 263 terms (576 sent to the recognizer).
 - **Video**: TelVue media 1043840 (3:48:28, matching the listed runtime) downloaded at
-  720p. Reached YouTube only after the refresh token was re-minted — see below.
+  720p and uploaded as `3pJjVfmMOT4` once the refresh token was re-minted (see below):
+  typeset crest card (date check 0.979), "English (speaker-attributed)" caption track,
+  22 numbered chapters in the description, `recordings` row and 1,110 utterances in D1.
+  The 2026-08-18 description was rebuilt in the same push with its new numbering.
 - **Transcript**: 1,110 utterances, 9 clusters, 10 speakers named, 0.0% unattributed.
   Five of seven trustees attended (Alic and Potts absent, both named delegate and
   alternate in absentia); Dan Trudel presented remotely; the MASB consultant and the
@@ -38,8 +41,10 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
   those files for a new meeting since the August rebuild: `brief.py` raised
   FileNotFoundError and three files had to be edited by hand. It also keeps the
   committed outline and meeting list current.
-- **`anchors/coverage.py` is now in the repo.** The docs cited it; it only existed in
-  the gitignored workdir.
+- **`anchors/coverage.py` is now in the repo**, and its "anchored" column works again.
+  The docs cited it; it only existed in the gitignored workdir, and it tested each
+  anchor's *label* for the agenda number — since numbering moved into `items` and labels
+  became clean, every numbered chapter read as unanchored. It now honours `items`.
 - **The YouTube refresh token expired** (`invalid_grant`, "Token has been expired or
   revoked"). It was minted on 2026-08-17 while the consent screen was still in
   *Testing*; Google fixes the 7-day expiry at issuance, so publishing the app the same

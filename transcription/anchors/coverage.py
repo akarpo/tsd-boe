@@ -89,9 +89,14 @@ def check(date):
                 verdict, where = "IN CONSENT", hms(best[0][0])
             else:
                 verdict, where = "MENTIONED", hms(best[0][0])
-        # match the item anywhere in a label: a single anchor legitimately covers
-        # several items ("8.A/8.B Countywide enhancement millage resolution")
-        covered = any(re.search(rf"(?<![\d.]){re.escape(item)}(?![\d])", a["label"], re.I)
+        # An anchor covers the item when it claims it in `items` (the authored
+        # numbering; apply_anchors.py writes cur_<date>.json with a clean label and
+        # the numbers alongside) -- or, for anchors predating that, when the number
+        # appears in the label itself. A single anchor legitimately covers several
+        # items ("8.A/8.B Countywide enhancement millage resolution"). Testing the
+        # label alone reported every numbered chapter as unanchored.
+        covered = any(item in (a.get("items") or [])
+                      or re.search(rf"(?<![\d.]){re.escape(item)}(?![\d])", a["label"], re.I)
                       for a in anchors)
         rows.append((item, verdict, where, top_n if best else 0, covered, titles[0][:52]))
     return rows
