@@ -18,7 +18,11 @@ and gated by a check that can now see the class of error that slipped past it.
 **The 2026-09-01 workshop is ingested through chapters** (2026-09-04): 10 documents
 summarized, a 3:48 transcript with all ten speakers named from evidence, 22 numbered
 chapters authored, on YouTube as `3pJjVfmMOT4` with captions and chapters, and live on
-the meeting page. The YouTube token had to be re-minted first (its 7-day Testing-era
+the meeting page. **Its speaker attribution was wrong and was corrected the same evening**:
+the cluster labelled Melton was Alic (name plate on camera), Melton had been merged into
+Zendler's cluster all night, and six trustees attended, not five. D1, captions, the
+deliverables and the Facebook draft are re-pushed; the method is in TRANSCRIPTION.md and
+`transcription/examples/2026-09-01/`. The YouTube token had to be re-minted first (its 7-day Testing-era
 expiry was fixed at issuance); the consent is four clicks, documented in OPERATIONS.
 The same session found two silent regressions: BoardDocs deep links had been missing
 for every meeting since August (attachment path changed to `pfiles`), and the
@@ -132,9 +136,18 @@ would remove the class of error. Only worth it if it bites again.
 - **The prompt-capture hook only fires when Claude is launched inside the repo.** Sessions
   started from `~` (this one) leave no trace; their entries are reconstructed by hand.
   A user-level hook keyed on the working directory would close that.
-- The 2026-09-01 caption track on YouTube carries the speaker spec's earlier header
-  comment (one note called Trudel remote); the cues are unchanged and SRT readers ignore
-  the header, so it was left rather than spend 450 units.
+- **The voice split is a set of session scripts, not a tool.** `examples/2026-09-01/voice_split/`
+  has hardcoded paths and this meeting's seeds. If a second merged-cluster meeting turns
+  up, make it `transcription/split_cluster.py DATE --cluster E --seed NAME=H:MM:SS …`
+  that writes `reassign`/`utterance_splits` into the spec; until then the README there is
+  the procedure.
+- **Older transcripts may carry the same class of error** — a mapping settled on two
+  matching lines with the rest of the persona unread. Two lines seen in passing on
+  2026-09-04 contradict their speaker: 2026-02-03 0:53:56 "Emina Alic: … even back when my
+  kids were in school" (her children are in school now), and 2025-12-09 0:21:13
+  "Stephanie Zendler: when my daughter was taking Spanish, and this was 12, 15 years ago".
+  Worth a pass with the persona check and a frame grab per cluster, meeting by meeting;
+  nothing is known to be wrong beyond those two lines.
 
 ### Access-control and logging housekeeping
 - **`/admin/users` is capped at `LIMIT 200`** and truncates silently, sorted pending-first. Fine

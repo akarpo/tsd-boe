@@ -168,7 +168,8 @@ so turns the diarizer dropped into E (DiPilato, Philippart) come out too. A slid
 mid-utterance; those are cut at the word boundary. The spec records the result as
 `reassign` (name → utterance `start_ms` list) and `utterance_splits` (start_ms,
 at_ms, after). The sub-second interjections are the least certain lines. The
-scripts live in the session's scratchpad, not the repo — the method is above.
+scripts, with a README of the order they ran in, are kept as the worked example in
+`transcription/examples/2026-09-01/voice_split/`; the spec they produced is beside them.
 
 **A first name in a sentence about someone else is not evidence.** The same night,
 "she's going to stick around as long as she can, but Dan is out of town on business
@@ -402,8 +403,12 @@ field, which is the recorded channel title.
 2. `transcribe_meeting.py MEDIA --date …` (~$0.40; a 3.8-hour workshop ≈ $1).
    Transcode the local video yourself rather than letting `run_meeting.sh` fetch
    audio from YouTube — a fresh upload is still processing and the fetch fails.
-   Draft `speakers.json` from the roll call; run with `--speakers`; verify with the
-   levers above and write the resolved `mapping` back into the spec.
+   Draft `speakers.json` from the roll call; run with `--speakers`. **Before writing
+   the resolved `mapping`, grab a frame from the middle of each cluster's longest
+   turn** (`ffmpeg -ss H:MM:SS -i tsd_<date>.mp4 -frames:v 1 f.jpg`) — the name plate
+   on camera is the one lever that does not depend on reading the transcript right —
+   then verify with the levers above and write `mapping` back into the spec. A trustee
+   with no cluster is a merged cluster until proven absent.
 3. Build the agenda anchors — **`make_anchors.py` output is a draft, not an
    answer**. Run `anchors/prep_meeting.py DATE --transcript <the .transcript.json>`
    to build the workdir inputs, then `anchors/brief.py DATE`, author the anchor set

@@ -27,6 +27,12 @@ Versioning is loosely semantic; tags are pushed to GitHub (`git tag vX.Y.Z`).
 - **Pushed**: D1 `transcript_utts` (1,114 rows), the YouTube caption track, the
   `transcripts/` deliverables, and the Facebook notes draft (seven attributions).
   Lesson recorded in TRANSCRIPTION.md: grab a frame before writing a mapping.
+- **Docs**: the corrected spec, the attributed transcript and the split scripts are
+  committed as the worked example `transcription/examples/2026-09-01/` (with a README
+  of the order they ran in); TOOLING rows for the transcriber, uploader and audit gate
+  name the new spec fields and the shared resolver; the transcription checklist gains
+  the frame-grab step; ROADMAP records the correction and two follow-ups (make the
+  split a tool; two older lines that contradict their speaker).
 
 ### Documentation and QA pass — 2026-09-04
 
